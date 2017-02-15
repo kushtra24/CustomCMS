@@ -424,4 +424,7 @@ p {
   width: 267px;
 }
 
+.active{
+  display: none;
+}
 /*# sourceMappingURL=style.css.map */

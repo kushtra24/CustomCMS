@@ -135,13 +135,15 @@ include 'includes/db.php';
 
 						</ul>
 
-						<div id="navigation-search-hook" class=""><span class="fa fa-search" style="display: inline-block;"></span><span class="fa fa-close" style="display: none;"></span>
+						<div id="navigation-search-hook" class="">
+						<span class="fa fa-search" style="display: inline-block;"></span>
 						</div>
 
-						<div id="navigation-search-form" class="" style="display: none;">
-							<form method="get" action="http://meridianthemes-demo.net/the-essence/">
+						<div id="navigation-search-form" class="active">
+							<form method="get" action="index.php">
 								<input name="s" type="text" placeholder="Enter search term and hit enter">
 							</form>
+							<span class="fa fa-close close_serach_form"></span>
 						</div>
 					</div><!-- /.navbar-collapse -->
 			  </div><!-- /.container-fluid -->

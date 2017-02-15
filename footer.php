@@ -55,6 +55,8 @@
 	<script src="js/bootstrap.min.js"></script>
 	<!-- bootstrap imp end -->
 	<script src="js/navbar.js"></script>
+	<!-- bootstrap implimentation -->
+	<script src="js/custom.js"></script>
 
 </body>
 </html>
