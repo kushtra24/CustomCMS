@@ -1,5 +1,5 @@
 <?php// include 'includes/db.php'; ?>
-<?php include 'header.php'; ?>
+<?php include 'includes/header.php'; ?>
 
 
 <section class="featured-post-small">
@@ -213,7 +213,7 @@ while($row = mysqli_fetch_assoc($select_the_post_title))
 		?>
 		</section> <!-- content -->
 		<!-- Sidebar -->
-		<?php include "aside.php" ?>
+		<?php include "includes/aside.php" ?>
 
 	</div> <!-- main container -->
 
@@ -283,4 +283,4 @@ while($row = mysqli_fetch_assoc($select_the_post_title))
 
 </section><!-- content -->
 
-<?php include 'footer.php'; ?>
+<?php include 'includes/footer.php'; ?>
