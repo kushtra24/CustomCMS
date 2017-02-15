@@ -135,13 +135,26 @@ include 'includes/db.php';
 
 						</ul>
 
+
+						<?php 
+						if (isset($_POST['submit'])) {
+						  $search = $_POST['search'];
+
+						  $query = "SELECT * FROM posts WHERE post_tags LIKE  '%$search%'";
+
+						  $serach_query = mysqli_query ($connect, $query);
+						}
+
+						 ?>
+
 						<div id="navigation-search-hook" class="">
 						<span class="fa fa-search" style="display: inline-block;"></span>
 						</div>
 
 						<div id="navigation-search-form" class="active">
-							<form method="get" action="index.php">
-								<input name="s" type="text" placeholder="Enter search term and hit enter">
+							<form method="post" action="">
+								<input name="search" type="text" placeholder="Enter search term and hit enter">
+								<button class="btn btn-default" name="submit" type="submit"> <span class="fa fa-search" style="display: inline-block;"></span></button>
 							</form>
 							<span class="fa fa-close close_serach_form"></span>
 						</div>
