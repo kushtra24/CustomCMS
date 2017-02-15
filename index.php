@@ -37,27 +37,31 @@
 
 <section>
 		<div class="container">
+		<?php 
+		$query = "SELECT * FROM posts";
+
+			$select_the_post_title = mysqli_query($connect, $query);
+
+while($row = mysqli_fetch_assoc($select_the_post_title))
+						{
+							$post_title = $row['post_title'];
+							$post_author = $row['post_author'];
+							$post_date = $row['post_date'];
+							$post_image = $row['post_image'];
+							$post_content = $row['post_content'];
+							$post_tags = $row['post_tags'];
+							$post_comment_count = $row['post_comment_count'];
+						
+							?>
+
 			<div class="feauterd-post-big-container col-md-4">
 			<div class="category-featured-post-big">Travel</div>
-			<div class="image-of-featured-post-big"><img src="http://placehold.it/352x320" alt="fetured-post"></div>
-			<div class="descrition-of-featured-post-big"><p>Lorem Ipsum is simply dummy text of the printing and typesetting</p></div>
-			<div class="autor-name-and-date-fetured-post-big"><p><span>Name Surname</span>  -  6 months ago</p></div>
+			<div class="image-of-featured-post-big"><img src="img/<?php echo $post_image ?>" alt="fetured-post" width="350" height="200" class="responsive-img"></div>
+			<div class="descrition-of-featured-post-big"><p><?php echo $post_title ?></p></div>
+			<div class="autor-name-and-date-fetured-post-big"><p><span><?php echo $post_author ?></span>  -  <?php echo $post_date ?></p></div>
 			</div>
-
-
-			<div class="feauterd-post-big-container col-md-4">
-			<div class="category-featured-post-big">Travel</div>
-			<div class="image-of-featured-post-big"><img src="http://placehold.it/352x320" alt="fetured-post"></div>
-			<div class="descrition-of-featured-post-big"><p>Lorem Ipsum is simply dummy text of the printing and typesetting</p></div>
-			<div class="autor-name-and-date-fetured-post-big"><p><span>Name Surname</span>  -  6 months ago</p></div>
-			</div>
-
-			<div class="feauterd-post-big-container col-md-4">
-			<div class="category-featured-post-big">Travel</div>
-			<div class="image-of-featured-post-big"><img src="http://placehold.it/352x320" alt="fetured-post"></div>
-			<div class="descrition-of-featured-post-big"><p>Lorem Ipsum is simply dummy text of the printing and typesetting</p></div>
-			<div class="autor-name-and-date-fetured-post-big"><p><span>Name Surname</span>  -  6 months ago</p></div>
-			</div>
+<?php } ?>
+			
 		</div>
 </section><!-- feuterd-post-big -->
 
@@ -103,8 +107,7 @@
 		<section class="content col-md-8">
 
 		<?php 
-			$query = "SELECT * FROM posts";
-
+			
 			$select_the_post_title = mysqli_query($connect, $query);
 
 			while($row = mysqli_fetch_assoc($select_the_post_title))
@@ -125,7 +128,7 @@
 				</div>
 
 				<div class="big-post-title">
-					<img src="<?php echo $post_image ?>" alt="big post image" class="img-responsive img-thumbnail">
+					<img src="img/<?php echo $post_image ?>" alt="big post image" class="img-responsive img-thumbnail">
 					<h3 class='big-post-title'><?php echo $post_title ?> </h3>
 				</div>
 
