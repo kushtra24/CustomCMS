@@ -1,0 +1,382 @@
+$fontis:    Helvetica, sans-serif
+$dark-blue: #0b3c50
+$light-blue: #99c0d0
+$baby-blue: #1ec896
+$red: #cb646f
+$light-gray: #f1f1f1
+$dark-gray: #7e7e92
+
+@mixin primary-font
+	font-family: 'Open Sans', sans-serif
+
+@mixin secondary-font
+	font-family: 'Bree Serif', serif
+
+
+@import 'sass/media_querys'
+
+// __________________________________________________________
+p
+	margin: 0 !important
+
+*
+	padding: 0
+	margin: 0
+
+
+.seperator
+	height: 2px
+	background-color: $light-blue
+
+.float-right
+	float: right!important
+
+.no-padding-left
+	padding-left: 0!important
+
+.no-padding-right
+	padding-right: 0!important
+
+// __________________________________________________________header
+
+
+.top-header-canvas
+	height: 41px
+	background-color: $dark-blue
+	width: 100%
+
+.top-header-canvas
+	li
+		color: $light-blue
+		list-style: none
+		float: left
+		padding-right: 20px
+		margin-top: 10px
+		@include primary-font
+		a:hover
+			color: lighten($light-blue, 10%)
+			text-decoration: none
+	li:last-child 
+		padding: 0
+
+.navbar-default
+	background-color: #fff!important
+	border-color: #fff!important
+	background-image: inherit!important
+	box-shadow: inherit!important
+
+.navbar-brand
+	padding: inherit
+	font-size: inherit
+	line-height: inherit
+	height: inherit
+
+.navbar
+	margin-bottom: 86px!important
+	margin-top: 30px
+
+.navbar-default .navbar-nav>li>a
+	font-size: 18px
+	@include primary-font
+
+.navbar-default .navbar-nav>.active>a
+	background-color: inherit!important
+
+.navbar-default .navbar-nav>.active>a
+	background-image: inherit!important
+	box-shadow: inherit!important
+
+.active a
+	color: $baby-blue!important
+
+#navigation-search-hook
+	position: absolute
+	top: 39px
+	right: 0
+	cursor: pointer
+
+#navigation-search-form
+	position: absolute
+	top: 39px
+	right: 0
+
+// _________________________________________________________featured-post Small
+
+.descrition-of-featured-post p
+	font-size: 13px
+	line-height: 18px
+	@include primary-font
+
+.descrition-of-featured-post
+	padding-right: 0!important
+
+.image-of-featured-post
+	width: 140px
+	height: 70px
+	float: left
+
+.descrition-of-featured-post
+	width: 210px
+	height: 70px
+	padding-left: 15px
+	float: left
+// __________________________________________________________descrition-of-featured-post-big
+
+.descrition-of-featured-post-big
+	font-size: 20px
+	text-align: center
+	@include secondary-font
+	margin: 24px 17px
+
+.autor-name-and-date-fetured-post-big
+	margin: 24px 17px
+	text-align: center
+	p
+		text-transform: uppercase
+		color: $dark-gray
+		font-size: 13px
+	span
+		text-transform: capitalize
+		color: $red
+		font-size: 15px
+
+.category-featured-post-big
+	background-color: white
+	float: left
+	position: relative
+	top: 32px
+	padding: 6px 20px
+	color: $light-blue
+	text-transform: uppercase
+	@include primary-font
+
+// __________________________________________________________Promo-box
+
+.promo-box
+	// background: $light-gray
+	padding: 20px
+	text-align: center
+	position: relative
+	background-position: center
+	margin: 30px 0
+	
+.promo-box-link
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+
+.promo-box-inside
+	border: 2px solid #fff
+	padding: 35px
+	color: white
+	p
+		font-size: 12px
+		text-transform: uppercase
+		letter-spacing: 2px
+	h2
+		font-size: 36px
+		@include secondary-font
+
+
+// __________________________________________________________content
+
+.section-title
+	margin: 20px 0
+	clear: both
+	display: block
+	a
+		font-size: 20px
+		letter-spacing: 2px
+		@include primary-font
+		color: $red
+		text-decoration: none
+	a:hover
+		text-decoration: none
+		color: $red
+	.seperator
+		background-color: $red
+
+.big-post-title
+	font-size: 41px
+	@include secondary-font
+	font-weight: 500
+	color: $dark-blue
+
+.big-post-title:hover
+	color: #136182
+
+
+
+// __________________________________________________________content
+
+
+
+.subscibe-box-aside
+	border: 2px solid #fff
+	padding: 35px
+	p
+		text-transform: uppercase
+		font-size: 15px
+		margin-bottom: 36px !important	
+		letter-spacing: 2px
+
+
+
+.autor-big-post
+	border-right: 1px solid $red
+	img
+		border-radius: 50%
+		float: left
+		margin-right: 15px
+	span
+		@include secondary-font
+		font-weight: bold
+		font-size: 13px
+		color: $dark-blue
+	p:last-child
+		font-size: 10px
+		line-height: 25px
+		color: $dark-blue
+
+.info-box
+	margin-top: 25px
+	height: 50px
+
+.comments-big-post
+	border-right: 1px solid $red
+	i
+		float: left
+		margin-right: 15px
+		color: $dark-blue
+	p
+		font-size: 16px
+		line-height: 50px
+		@include secondary-font
+
+.number-of-shares
+	border-right: 1px solid $red
+	p
+		line-height: 50px
+		vertical-align: middle
+		display: inline-block
+		@include secondary-font
+	span
+		font-size: 29px
+		@include primary-font
+		font-weight: 100
+		vertical-align: middle
+		display: inline-block
+
+.social-icons-share
+	line-height: 43px
+	li
+		float: left
+		list-style: none
+		margin-right: 14px
+	li:last-child
+		margin-right: 0
+
+.big-post-excerpt
+	font-size: 16px
+	@include primary-font
+	margin-top: 25px
+	color: $dark-blue
+
+.continue-reading
+	background-color: $light-blue
+	width: 170px
+	height: 38px
+	margin-top: 20px
+	border-radius: 0!important
+	a
+		font-size: 16px
+		color: $dark-blue
+		display: block
+
+.related-post
+	margin-bottom: 45px
+
+.related-post-info
+	margin: 7px 0
+	.category
+		p
+			display: inline-block
+			font-size: 12px
+			color: $red
+		i
+			margin-right: 4px
+			font-size: 12px
+	.date
+		p
+			display: inline-block
+			font-size: 12px
+			color: $red
+		i
+			margin-right: 4px
+			font-size: 12px
+
+.related-post-excerpt
+	color: $dark-blue
+	font-size: 13px
+	@include primary-font
+
+// __________________________________________________________aside
+
+.most-read-post-aside
+	float: left
+	margin-bottom: 25px
+	p
+		@include secondary-font
+		font-size: 16px
+		font-weight: bold
+	.comments
+		font-weight: 100
+		font-size: 12px
+		@include primary-font
+		float: left
+		margin-top: 5px
+		i
+			margin-right: 5px
+
+.most-resent-post-aside
+	@extend .related-post-info
+	margin-bottom: 52px
+	>p
+		@include secondary-font
+		font-size: 18px
+		font-weight: bold
+	.category, .date
+		margin-top: 15px
+
+.most-popular-post-section
+	background-color: $light-gray
+	width: 100%
+	display: block
+	
+.popular-posts
+	@extend .related-post-info
+	margin-bottom: 30px
+	p
+		@include secondary-font
+		font-size: 14px
+
+
+// __________________________________________________________footer
+
+
+.copyright-footer
+	@extend .top-header-canvas
+	ul
+		float: right
+	.copyright
+		color: $light-blue
+		line-height: 41px
+
+
+
+// __________________________________________________________owl_plugin
+
+.col-four
+	width: 267px
