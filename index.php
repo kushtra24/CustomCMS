@@ -7,7 +7,7 @@
 			<div id="owl-demo" class="owl-carousel">
 				<div class="feauterd-post-container lazyOwl">
 				<div class="image-of-featured-post"><img data-src="http://placehold.it/140x69" src="http://placehold.it/140x69" alt="fetured-post"></div>
-				<div class="descrition-of-featured-post"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p></div>
+				<div class="descrition-of-featured-post"><p>Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave.</p></div>
 				</div>
 
 				<div class="feauterd-post-container lazyOwl">
@@ -42,7 +42,7 @@
 
 			$select_the_post_title = mysqli_query($connect, $query);
 
-while($row = mysqli_fetch_assoc($select_the_post_title))
+			while($row = mysqli_fetch_assoc($select_the_post_title))
 						{
 							$post_title = $row['post_title'];
 							$post_author = $row['post_author'];

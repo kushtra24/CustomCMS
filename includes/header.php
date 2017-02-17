@@ -73,6 +73,7 @@ include 'db.php';
 				<li><a href="#">Contact</a></li>
 				<li><a href="#">Impressum</a></li>
 				<li><a href="#">Media</a></li>
+				<li><a href="admin/index.php">Admin</a></li>
 			</ul>
 		</div>
 		<div class="col-md-3">
