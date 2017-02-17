@@ -1,5 +1,7 @@
 <?php include_once '../includes/db.php' ?>
 
+<?php ob_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

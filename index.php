@@ -38,7 +38,7 @@
 <section>
 		<div class="container">
 		<?php 
-		$query = "SELECT * FROM posts";
+		$query = "SELECT * FROM `posts` WHERE post_category_id = 2";
 
 			$select_the_post_title = mysqli_query($connect, $query);
 
@@ -107,9 +107,9 @@
 		<section class="content col-md-8">
 
 		<?php 
-			
-			$select_the_post_title = mysqli_query($connect, $query);
+			$query_big_post = "SELECT * FROM `posts`";
 
+			$select_the_post_title = mysqli_query($connect, $query_big_post);
 			while($row = mysqli_fetch_assoc($select_the_post_title))
 						{
 							$post_title = $row['post_title'];
@@ -119,6 +119,7 @@
 							$post_content = $row['post_content'];
 							$post_tags = $row['post_tags'];
 							$post_comment_count = $row['post_comment_count'];
+
 						
 							?>
 			<div class="big-post">
@@ -160,7 +161,7 @@
 				</div>
 
 				<div class="big-post-excerpt">
-					<p><?php echo $post_content ?></p>
+					<p><?php echo getExcerpt($post_content, 0, 200);?></p>
 				</div>
 				<p class="post-tags"> <?php echo $post_tags ?></p>
 				<button class="btn continue-reading" type="submit"><a href="#">Continue Reading</a></button>
@@ -205,9 +206,7 @@
 					<p class="related-post-excerpt">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 				</div>
 			</div>
-			</div>
-
-		
+			</div>		
 <?php
 }
 		?>
