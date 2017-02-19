@@ -2,43 +2,39 @@
 <?php include 'includes/header.php'; ?>
 
 
+
+
 <section class="featured-post-small">
 		<div class="container">
-			<div id="owl-demo" class="owl-carousel">
-				<div class="feauterd-post-container lazyOwl">
-				<div class="image-of-featured-post"><img data-src="http://placehold.it/140x69" src="http://placehold.it/140x69" alt="fetured-post"></div>
-				<div class="descrition-of-featured-post"><p>Lorem Ipsum është një tekst shabllon i industrisë së printimit dhe shtypshkronjave.</p></div>
-				</div>
+<div id="owl-demo" class="owl-carousel">
+		<?php 
+		$query = "SELECT * FROM `posts` ORDER BY RAND() LIMIT 6";
 
-				<div class="feauterd-post-container lazyOwl">
-				<div class="image-of-featured-post "><img data-src="http://placehold.it/140x69" src="http://placehold.it/140x69" alt="fetured-post"></div>
-				<div class="descrition-of-featured-post "><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p></div>
-				</div>
+			$select_the_post_title = mysqli_query($connect, $query);
 
+			while($row = mysqli_fetch_assoc($select_the_post_title))
+						{
+							$post_image = $row['post_image'];
+							$post_content = $row['post_content'];
+						?>
+			
 				<div class="feauterd-post-container lazyOwl">
-				<div class="image-of-featured-post "><img data-src="http://placehold.it/140x69" src="http://placehold.it/140x69" alt="fetured-post"></div>
-				<div class="descrition-of-featured-post"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p></div>
+				<div class="image-of-featured-post"><img data-src="img/<?php echo $post_image ?>" src="img/<?php echo $post_image ?>" alt="fetured-post" width="130"></div>
+				<div class="descrition-of-featured-post"><p><?php echo getExcerpt($post_content, 0, 88); ?></p></div>
 				</div>
-
-				<div class="feauterd-post-container lazyOwl">
-				<div class="image-of-featured-post "><img data-src="http://placehold.it/140x69" src="http://placehold.it/140x69" alt="fetured-post"></div>
-				<div class="descrition-of-featured-post"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p></div>
-				</div>
-
-				<div class="feauterd-post-container lazyOwl">
-				<div class="image-of-featured-post "><img data-src="http://placehold.it/140x69" src="http://placehold.it/140x69" alt="fetured-post"></div>
-				<div class="descrition-of-featured-post"><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the </p></div>
-				</div>
-			</div>
-
+			
+			<?php
+}
+?>
+</div>
 		</div>
 </section><!-- feautered-post -->
 
 
 <section>
 		<div class="container">
-		<?php 
-		$query = "SELECT * FROM `posts` WHERE post_category_id = 2";
+		<?php
+		$query = "SELECT * FROM `posts` INNER JOIN categories ON posts.post_category_id = categories.cat_id WHERE post_category_id = 16";
 
 			$select_the_post_title = mysqli_query($connect, $query);
 
@@ -48,14 +44,11 @@
 							$post_author = $row['post_author'];
 							$post_date = $row['post_date'];
 							$post_image = $row['post_image'];
-							$post_content = $row['post_content'];
-							$post_tags = $row['post_tags'];
-							$post_comment_count = $row['post_comment_count'];
-						
+							$cat_title = $row['cat_title'];
 							?>
 
 			<div class="feauterd-post-big-container col-md-4">
-			<div class="category-featured-post-big">Travel</div>
+			<div class="category-featured-post-big"><?php echo $cat_title ?></div>
 			<div class="image-of-featured-post-big"><img src="img/<?php echo $post_image ?>" alt="fetured-post" width="350" height="200" class="responsive-img"></div>
 			<div class="descrition-of-featured-post-big"><p><?php echo $post_title ?></p></div>
 			<div class="autor-name-and-date-fetured-post-big"><p><span><?php echo $post_author ?></span>  -  <?php echo $post_date ?></p></div>
@@ -107,7 +100,7 @@
 		<section class="content col-md-8">
 
 		<?php 
-			$query_big_post = "SELECT * FROM `posts`";
+			$query_big_post = "SELECT * FROM `posts` INNER JOIN categories ON posts.post_category_id = categories.cat_id LIMIT 2";
 
 			$select_the_post_title = mysqli_query($connect, $query_big_post);
 			while($row = mysqli_fetch_assoc($select_the_post_title))
@@ -119,12 +112,12 @@
 							$post_content = $row['post_content'];
 							$post_tags = $row['post_tags'];
 							$post_comment_count = $row['post_comment_count'];
-
+							$cat_title = $row['cat_title'];
 						
 							?>
 			<div class="big-post">
 				<div class="section-title">
-					<h3><a href="#">Travel</a></h3>
+					<h3><a href="#"><?php echo $cat_title ?></a></h3>
 					<div class="seperator"></div>
 				</div>
 

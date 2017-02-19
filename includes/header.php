@@ -102,7 +102,7 @@ include 'functions.php';
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				      </button>
-				      <a class="navbar-brand" href="#"><img src="img/logo.png" alt="logo"></a>
+				      <a class="navbar-brand" href="http://localhost/customcms"><img src="img/logo.png" alt="logo"></a>
 				    </div>
 
 				    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -116,7 +116,10 @@ include 'functions.php';
 
 						while ($row = mysqli_fetch_assoc($select_all_categories_query)) {
 							$cat_title = $row['cat_title'];
+							$is_menu = $row['is_menu'];
+							if ($is_menu == true) {
 							echo "<li><a href=''>{$cat_title}</a></li>";
+							}
 						}
 
 						?>
