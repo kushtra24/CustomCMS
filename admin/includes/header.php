@@ -1,9 +1,10 @@
+
+
 <?php include_once '../includes/db.php';
 include 'functions.php';
  ?>
 
 <?php ob_start(); ?>
-
 
 <?php session_start() ?>
 
@@ -277,7 +278,7 @@ include 'functions.php';
                                     <a href="all_posts.php">All Posts</a>
                                 </li>
                                 <li>
-                                    <a href="add_posts.php">Add Posts</a>
+                                    <a href="?burimi=add_post">Add Posts</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
