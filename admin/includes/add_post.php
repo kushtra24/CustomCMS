@@ -14,7 +14,18 @@
   </div>
   <div class="form-group">
     <label for="postCategoryId">Post category id</label>
-    <input type="text" name="post_category_id" class="form-control" id="postCategoryId" placeholder="Post category id">
+    <select class="form-control" name="post_category">
+        <?php
+        //Get all categories to display in a dropdown menu
+        $query = "SELECT * FROM categories";
+        $show_all_categories_in_the_table = mysqli_query($connect, $query);
+        while ($row = mysqli_fetch_assoc($show_all_categories_in_the_table)) {
+          $cat_title = $row['cat_title'];
+          $cat_id = $row['cat_id'];
+           echo "<option value='$cat_id'>{$cat_title}</option>";
+        }
+        ?>
+    </select>
   </div>
   <div class="form-group">
     <label for="postAuthor">Post author</label>

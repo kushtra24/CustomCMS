@@ -1,12 +1,13 @@
+<?php 
+    include_once '../includes/db.php';
+    include 'functions.php';
+    ob_start(); 
+    session_start();
 
-
-<?php include_once '../includes/db.php';
-include 'functions.php';
- ?>
-
-<?php ob_start(); ?>
-
-<?php session_start() ?>
+    if (!isset($_SESSION['role']) && $_SESSION['role'] !== 'admin') {
+        header('Location: ../login.php');
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +20,7 @@ include 'functions.php';
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>The admin</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -58,7 +59,7 @@ include 'functions.php';
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Custon CMS</a>
+                <a class="navbar-brand" href="index.php">Custom CMS</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -233,7 +234,9 @@ include 'functions.php';
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <?php echo $_SESSION['username']; ?>
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -241,7 +244,7 @@ include 'functions.php';
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="includes/logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -284,10 +287,19 @@ include 'functions.php';
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                            <a href="comments.php"><i class="fa fa-comment" aria-hidden="true"></i> Comments</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                            <a href="#"><i class="fa fa-user fa-fw"></i>Users<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="users.php">All Users</a>
+                                </li>
+                                <li>
+                                    <a href="users.php?source=add_user">Add User</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>

@@ -5,11 +5,11 @@
 	$Show_all_categories_in_aside = mysqli_query($connect, $query);
 
 while ($row = mysqli_fetch_assoc($Show_all_categories_in_aside)) {
-	
-$cat_title = $row['cat_title'];
+	$cat_id = $row['cat_id'];
+	$cat_title = $row['cat_title'];
 	
 ?>
-<ul><li> <?php echo "$cat_title"; ?> </li></ul>
+<ul><li> <a href="category-posts.php?c_id=<?php echo "$cat_id"; ?>"><?php echo "$cat_title"; ?> </a></li></ul>
 <?php
 }
 ?>

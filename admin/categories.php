@@ -21,13 +21,15 @@
                     </div>
                 </div>
             </form>
-            <?php 
-                    // Update or change a category
-                    if (isset($_GET['edit'])) {
+
+            <?php   if (isset($_GET['edit'])) {
                         $cat_id = $_GET['edit'];
+                    // Update or change a category
                         include 'includes/update_categories.php';
-                    }
+
+                    }//if is set edit
             ?>
+            
         </div>
 
             <div class="show_categories">
@@ -45,14 +47,12 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Categorie Title</th>
-                                        <th>Add to Menu</th>
                                 </thead>
                                 <tbody>
                                 <?php show_all_categories(); ?>
 
                                 </tbody>
                                 <?php delete_categories(); ?>
-                                <?php add_to_menu(); ?>
                             </table>
                         </div>
                         <!-- /.panel-body -->

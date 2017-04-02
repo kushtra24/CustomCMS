@@ -21,4 +21,24 @@ function getExcerpt($str, $startPos=0, $maxLength=100) {
 	return $excerpt;
 }
 
-?>
+function post_counter(){
+
+	global $connect;
+
+		$query = "SELECT * FROM posts";
+		$select_posts = mysqli_query($connect, $query);
+		$row = mysqli_fetch_assoc($select_posts);
+		$post_id = $row['post_id'];
+
+	if (isset($_GET["single.php?p_id=$post_id"])) {
+		$post_counter = $_GET["post_id"];
+        $query = "UPDATE posts SET counter = counter + 1 WHERE p_id = $post_id";
+if (!$update_post_comment_count) {
+              die("query faild " . mysqli_error($connect));
+            }
+		$counter_query = mysqli_query($connect, $query);
+	}
+
+
+}
+

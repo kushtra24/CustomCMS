@@ -14,15 +14,15 @@
 
 			while($row = mysqli_fetch_assoc($select_the_post_title))
 						{
+							$post_id = $row['post_id'];
 							$post_image = $row['post_image'];
 							$post_content = $row['post_content'];
 						?>
 			
 				<div class="feauterd-post-container lazyOwl">
-				<div class="image-of-featured-post"><img data-src="img/<?php echo $post_image ?>" src="img/<?php echo $post_image ?>" alt="fetured-post" width="130"></div>
-				<div class="descrition-of-featured-post"><p><?php echo getExcerpt($post_content, 0, 88); ?></p></div>
+				<div class="image-of-featured-post"><a href="single.php?p_id=<?php echo $post_id ?>"><img data-src="admin/img/<?php echo $post_image ?>" src="admin/img/<?php echo $post_image ?>" alt="fetured-post" width="130"></a></div>
+				<div class="descrition-of-featured-post"><a href="single.php?p_id=<?php echo $post_id ?>"><p><?php echo getExcerpt($post_content, 0, 88); ?></p></a></div>
 				</div>
-			
 			<?php
 }
 ?>
@@ -34,23 +34,23 @@
 <section>
 		<div class="container">
 		<?php
-		$query = "SELECT * FROM `posts` INNER JOIN categories ON posts.post_category_id = categories.cat_id WHERE post_category_id = 16";
+		$query = "SELECT * FROM `posts` INNER JOIN categories ON posts.post_category_id = categories.cat_id WHERE post_category_id = 2";
 
 			$select_the_post_title = mysqli_query($connect, $query);
 
 			while($row = mysqli_fetch_assoc($select_the_post_title))
 						{
+							$post_id = $row['post_id'];
 							$post_title = $row['post_title'];
 							$post_author = $row['post_author'];
 							$post_date = $row['post_date'];
 							$post_image = $row['post_image'];
 							$cat_title = $row['cat_title'];
 							?>
-
 			<div class="feauterd-post-big-container col-md-4">
-			<div class="category-featured-post-big"><?php echo $cat_title ?></div>
-			<div class="image-of-featured-post-big"><img src="img/<?php echo $post_image ?>" alt="fetured-post" width="350" height="200" class="responsive-img"></div>
-			<div class="descrition-of-featured-post-big"><p><?php echo $post_title ?></p></div>
+			<a href="single.php?p_id=<?php echo $post_id ?>"><div class="category-featured-post-big"><?php echo $cat_title ?></div></a>
+			<div class="image-of-featured-post-big"><a href="single.php?p_id=<?php echo $post_id ?>"><img src="admin/img/<?php echo $post_image ?>" alt="fetured-post" width="350" height="200" class="responsive-img"></a></div>
+			<div class="descrition-of-featured-post-big"><a href="single.php?p_id=<?php echo $post_id ?>"><p><?php echo $post_title ?></p></a></div>
 			<div class="autor-name-and-date-fetured-post-big"><p><span><?php echo $post_author ?></span>  -  <?php echo $post_date ?></p></div>
 			</div>
 <?php } ?>
@@ -100,11 +100,12 @@
 		<section class="content col-md-8">
 
 		<?php 
-			$query_big_post = "SELECT * FROM `posts` INNER JOIN categories ON posts.post_category_id = categories.cat_id LIMIT 2";
+			$query_big_post = "SELECT * FROM `posts` INNER JOIN categories ON posts.post_category_id = categories.cat_id ORDER BY post_date DESC LIMIT 2";
 
 			$select_the_post_title = mysqli_query($connect, $query_big_post);
 			while($row = mysqli_fetch_assoc($select_the_post_title))
 						{
+							$post_id = $row['post_id'];
 							$post_title = $row['post_title'];
 							$post_author = $row['post_author'];
 							$post_date = $row['post_date'];
@@ -122,8 +123,10 @@
 				</div>
 
 				<div class="big-post-title">
-					<img src="img/<?php echo $post_image ?>" alt="big post image" class="img-responsive img-thumbnail">
-					<h3 class='big-post-title'><?php echo $post_title ?> </h3>
+				<a href="single.php?p_id=<?php echo $post_id ?>">
+					<img src="admin/img/<?php echo $post_image ?>" alt="big post image" class="img-responsive img-thumbnail">
+				</a>
+					<h3 class='big-post-title'><a href="single.php?p_id=<?php echo $post_id ?>"><p><?php echo $post_title ?></p></a></h3>
 				</div>
 
 				<div class="info-box">

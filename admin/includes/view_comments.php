@@ -1,6 +1,6 @@
    <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">All Posts</h1>
+            <h1 class="page-header">All Comments</h1>
         </div>
     <!-- /.col-lg-12 -->
     </div>
@@ -10,7 +10,7 @@
             <div class="col-md-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        All Posts
+                        All Comments
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
@@ -19,23 +19,25 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Author</th>
-                                    <th>Title</th>
-                                    <th>Category</th>
+                                    <th>Content</th>
+                                    <th>Email</th>
                                     <th>Status</th>
-                                    <th>Image</th>
-                                    <th>Tages</th>
-                                    <th>Comments</th>
-                                    <th>Date</th>
-                                    <th>Kill</th>
+                                    <th>In response to</th>
+                                    <th>Post submited</th>
+                                    <th>Aprove</th>
+                                    <th>Disaprove</th>
                                     <th>edit</th>
+                                    <th>Kill</th>
                             </thead>
                             <tbody>
                                 <tr>
                                 <!-- get this (list_all_posts()) from funkctions.php file to display here -->
                                 <?php
                                 // these functions come from functions.php for admin page. 
-                                delete_posts();
-                                list_all_posts();
+                                delete_comments();
+                                list_all_comments();
+                                aprove_comments();
+                                disaprove_comments();
 
                                 if (isset($edit_post_input)) {
                                     echo("Success, You've updated the post");
@@ -45,7 +47,7 @@
                                 
                                 </tr>
                             </tbody>
-                            
+                            <a href=""></a>
                         </table>
                     </div>
                     <!-- /.panel-body -->

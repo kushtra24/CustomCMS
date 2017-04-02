@@ -1,24 +1,24 @@
 <?php include 'includes/header.php' ?>
 <div id="page-wrapper">
     
-     <?php if (isset($_GET['burimi'])) {
-                        
-                        $burimi = $_GET['burimi'];
+     <?php if (isset($_GET['source'])) {
+                        //put the _GET superglobal to a variable
+                        $source = $_GET['source'];
                     }else{
-                        $burimi = '';
+                        $source = '';
                     }
 
-                    switch ($burimi) {
+                    switch ($source) {
                         case 'add_post':
-                            include "includes/add_post.php";
+                            include "includes/add_comments.php";
                             break;
 
                         case 'edit_posts':
-                            include "includes/edit_posts.php";
+                            include "includes/edit_comments.php";
                             break;
                         
                         default:
-                            include "includes/view_all_posts.php";
+                            include "includes/view_comments.php";
                             break;
                     }
                     ?>

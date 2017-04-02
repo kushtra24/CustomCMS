@@ -27,6 +27,7 @@
           </div>
       <?php
             }
+            //This addes a specific category to the menu on the frontend.
             //if the update_category field is set
             if (isset($_POST['update_category'])) {
               //get the name from the input (input_cat_title) 
@@ -39,11 +40,9 @@
                 if (!$update_query) {
                     die("Query faild" . mysqli_error($connect));
                   }
-
                    header("Location: categories.php");
             }//update_category
        ?>
-
                 <p class="help-block"></p>
                 <input type="submit" name="update_category" value="Ruaje" class="btn btn-default">
       </div>
